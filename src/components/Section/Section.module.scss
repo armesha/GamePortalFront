@@ -1,0 +1,43 @@
+.section {
+  padding:   0 5rem;
+  max-width: max(75dvw, 1366px);
+  margin:    0 auto;
+
+  @media (max-width: 1440px) {
+    padding: 0 2rem;
+  }
+
+  @media (max-width: 768px) {
+    padding:   0 1rem;
+    max-width: 100%;
+  }
+
+
+  &.marginTop {
+    margin-top: 10rem;
+  }
+
+  &:not(.marginTop) {
+    margin-top: 4rem;
+  }
+
+  .title {
+    display:        flex;
+    flex-direction: row;
+    align-items:    center;
+    gap:            0.4rem;
+    margin:         0;
+    font-size:      1.6rem;
+
+    img {
+      height: 1.6rem;
+    }
+  }
+
+  .content {
+    display:               grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap:                   1rem;
+    margin-top:            2rem;
+  }
+}

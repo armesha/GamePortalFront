@@ -1,0 +1,62 @@
+@import '@/styles/variables';
+
+.profileButton {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 9999;
+  // @extend %transition;
+
+  &.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    @extend %transition;
+    outline: 2px solid transparent;
+  }
+
+  .logoutButton {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 50px;
+    width: max-content;
+    transform: translateX(-25%);
+    left: 0;
+    background: $background;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    border-radius: 0.8rem;
+    transition-delay: 0.2s;
+    z-index: 9999;
+    @extend %transition;
+
+    @media (max-width: 768px) {
+      transform: none;
+      left: auto;
+      right: 10px;
+    }
+
+    &:hover {
+      background: #ff4d4f;
+    }
+  }
+
+  &:hover .logoutButton,
+  .logoutButton:hover {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+  }
+}

@@ -1,0 +1,91 @@
+@use "sass:color";
+@import "@/styles/variables";
+
+.registerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  margin-bottom: 40dvh;
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 400px;
+    background-color: #2c2e3d;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    h2 {
+      margin: 0;
+      text-align: center;
+      color: #fff;
+    }
+
+    .inputGroup {
+      position: relative;
+
+      .error {
+        color: $accent;
+        font-size: 0.875rem;
+        position: absolute;
+        top: 100%;
+        left: 0;
+      }
+    }
+
+    .errorInput {
+      border-color: $accent;
+    }
+
+    .submitButton {
+      padding: 0.75rem 1rem;
+      border: none;
+      border-radius: 8px;
+      background-color: $accent;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      @extend %transition;
+
+      &:hover {
+        background-color: color.adjust($accent, $lightness: -10%);
+      }
+    }
+
+    .switchAuth {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: #fff;
+
+      a {
+        color: $accent;
+        text-decoration: none;
+        @extend %transition;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .showPasswordButton {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+
+      svg {
+        width: 1.2rem;
+        height: 1.2rem;
+        fill: #fff;
+      }
+    }
+  }
+}

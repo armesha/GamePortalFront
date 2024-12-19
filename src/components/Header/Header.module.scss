@@ -1,0 +1,158 @@
+@import '@/styles/variables';
+
+.container {
+  display:       flex;
+  width:         100%;
+  position:      relative;
+  min-height:    500px;
+  margin-bottom: 10rem;
+
+  &.compact {
+    min-height: 100px;
+  }
+
+  .banner {
+    width:      100%;
+    min-height: 100%;
+    position:   relative;
+
+    .bannerImage {
+      width:           100%;
+      height:          550px;
+      max-height:      550px;
+      object-fit:      cover;
+      object-position: center 30%;
+      mask-image:      linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0));
+      transition:      opacity 0.5s ease-in-out;
+      opacity:         0;
+      position:        absolute;
+      top:             0;
+      left:            0;
+      z-index:         -1;
+
+      &.fadeIn {
+        animation: fadeIn 2s forwards;
+      }
+
+      &.fadeOut {
+        animation: fadeOut 1s forwards;
+      }
+
+      &.show {
+        opacity: 1;
+      }
+    }
+  }
+
+  .bannerContent {
+    position:        absolute;
+    display:         flex;
+    flex-direction:  column;
+    justify-content: space-between;
+    height:          100%;
+    width:           100%;
+
+    .wrapper {
+      padding:    2rem 5rem 0 5rem;
+      min-height: 100%;
+
+      @media (max-width: 1440px) {
+        padding: 2rem 2rem 0 2rem;
+      }
+
+      @media (max-width: 768px) {
+        padding: 2rem 1rem 0 1rem;
+      }
+    }
+
+    .top {
+      width: 100%;
+
+      .desktopLayout {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        @media (max-width: 556px) {
+          display: none;
+        }
+
+        :global(.search) {
+          max-width: 20rem;
+        }
+      }
+
+      .mobileLayout {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 16px;
+
+        @media (max-width: 556px) {
+          display: flex;
+        }
+
+        .topRow {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+        }
+
+        .searchRow {
+          width: 100%;
+
+          > div {
+            width: 100%;
+          }
+
+          :global(.search) {
+            width: 100%;
+            max-width: none;
+          }
+        }
+      }
+
+      .logo {
+        height: 2rem;
+        filter: drop-shadow(0 0 4px rgba(0, 0, 0, 1));
+        cursor: pointer;
+        @extend %transition;
+
+        @media (hover: hover) {
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+
+    .bottom {
+      height:      100%;
+      width:       100%;
+      display:     flex;
+      align-items: flex-end;
+      overflow:    hidden;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

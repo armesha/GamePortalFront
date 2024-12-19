@@ -1,0 +1,81 @@
+@import "@/styles/variables";
+
+.chatList {
+  position:         absolute;
+  top:              60px;
+  left:             1rem;
+  width:            300px;
+  background-color: #2c2e3d;
+  border:           1px solid #444;
+  border-radius:    8px;
+  padding:          1rem;
+  z-index:          10;
+  box-shadow:       0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity:          0;
+  visibility:       hidden;
+  transform:        translateY(-20px);
+  @extend %transition;
+
+  &.chatListOpen {
+    opacity:    1;
+    visibility: visible;
+    transform:  translateY(0);
+  }
+
+  &.chatListClosed {
+    opacity:    0;
+    visibility: hidden;
+    transform:  translateY(-20px);
+  }
+
+  .chatListSection {
+
+    h4 {
+      margin:         0 0 0.5rem;
+      font-size:      1.2rem;
+      border-bottom:  1px solid #444;
+      padding-bottom: 0.5rem;
+    }
+
+    .nicknameInput {
+      width:            100%;
+      padding:          0.5rem;
+      border:           none;
+      border-radius:    5px;
+      margin-bottom:    0.5rem;
+      background-color: #3a3b4a;
+      color:            #fff;
+      @extend %transition;
+
+      &:focus {
+        transform: scale(1.02);
+        outline:   none;
+      }
+
+      &::placeholder {
+        color: #b9bdcc;
+      }
+    }
+
+    .sendToUserButton {
+      width:            100%;
+      padding:          0.5rem;
+      border:           none;
+      border-radius:    5px;
+      background-color: #4183d7;
+      color:            #fff;
+      cursor:           pointer;
+      @extend %transition;
+
+      &:hover {
+        background-color: #306bbf;
+        transform:        translateY(-2px);
+      }
+
+      &:active {
+        background-color: #205a9e;
+        transform:        translateY(0);
+      }
+    }
+  }
+}

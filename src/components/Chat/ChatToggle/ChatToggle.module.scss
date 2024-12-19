@@ -1,0 +1,41 @@
+@import "@/styles/variables";
+
+.chatToggle {
+  position:        absolute;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  z-index:         1;
+  left:            -64px;
+  top:             calc(50% - 32px);
+
+
+  button {
+    width:         48px;
+    height:        48px;
+    background:    none;
+    border:        none;
+    outline:       none;
+    border-radius: 8px;
+    cursor:        pointer;
+    @extend %transition;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        transform:        scale(1.1);
+
+        svg {
+          fill: #fff;
+        }
+      }
+    }
+
+    svg {
+      fill:   #d1d3d5;
+      width:  24px;
+      height: 24px;
+      @extend %transition;
+    }
+  }
+}

@@ -1,0 +1,91 @@
+@import "@/styles/variables";
+
+$animation-duration: 0.3s;
+$animation-ease:     ease;
+
+.header {
+  display:         flex;
+  width:           100%;
+  min-height:      60px;
+  flex-shrink:     0;
+  border-bottom:   1px solid rgba($text-secondary, 0.1);
+  justify-content: center;
+  align-items:     center;
+  font-size:       1.2rem;
+  font-weight:     600;
+  position:        relative;
+  background:      rgba($primary-color, 0.98);
+  backdrop-filter: blur(10px);
+  padding:         0 1rem;
+
+  .chatListButton {
+    position:        absolute;
+    left:            1rem;
+    background:      none;
+    border:          none;
+    color:           $text-primary;
+    cursor:          pointer;
+    width:           40px;
+    height:          40px;
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    border-radius:   8px;
+    @extend %transition;
+
+    &:hover {
+      background:      rgba($text-secondary, 0.1);
+      transform:       translateY(-1px);
+    }
+
+    &:active {
+      background:      rgba($text-secondary, 0.2);
+      transform:       translateY(0) scale(0.95);
+    }
+  }
+
+  .title {
+    color:           $text-primary;
+    margin:          0;
+    text-align:      center;
+    font-size:       1.4rem;
+    max-width:       60%;
+    overflow:        hidden;
+    text-overflow:   ellipsis;
+    white-space:     nowrap;
+  }
+
+  .closeButton {
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: $text-secondary;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    @extend %transition;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+      @extend %transition;
+    }
+
+    &:hover {
+      color: $text-primary;
+      background: rgba($text-secondary, 0.1);
+    }
+
+    &:active {
+      transform: translateY(-50%) scale(0.95);
+    }
+  }
+}

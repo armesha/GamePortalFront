@@ -1,0 +1,40 @@
+@import "@/styles/variables";
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  span {
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+    color: $white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    @extend %transition;
+
+    &:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, rgba(108, 92, 231, 0.15), rgba(108, 92, 231, 0.05));
+      border-color: rgba(108, 92, 231, 0.2);
+      box-shadow: 0 4px 12px rgba(108, 92, 231, 0.15);
+    }
+  }
+
+  @media (max-width: 768px) {
+    span {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
+    }
+
+    span:nth-child(n+11) {
+      display: none;
+    }
+  }
+}

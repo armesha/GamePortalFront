@@ -1,0 +1,107 @@
+@import "@/styles/variables";
+
+.input {
+  display:          flex;
+  padding:          0.75rem;
+  border-top:       1px solid rgba($text-secondary, 0.1);
+  background:       rgba($primary-color, 0.7);
+  backdrop-filter:  blur(10px);
+  align-items:      center;
+  gap:              0.5rem;
+  width:            100%;
+
+  input {
+    flex-grow:        1;
+    padding:          0.75rem 1rem;
+    border:           1px solid transparent;
+    border-radius:    8px;
+    background:       rgba($background, 0.5);
+    color:            $text-primary;
+    font-size:        0.95rem;
+    @extend %transition;
+
+    &:focus {
+      border-color:    rgba($accent, 0.3);
+      background:      rgba($background, 0.8);
+      outline:         none;
+    }
+
+    &::placeholder {
+      color:           rgba($text-secondary, 0.7);
+    }
+  }
+}
+
+.checkboxButton {
+  background:      none;
+  border:          none;
+  cursor:          pointer;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  width:           40px;
+  height:          40px;
+  border-radius:   8px;
+  outline:         none;
+  color:           $text-secondary;
+  @extend %transition;
+
+  &:hover {
+    background:     rgba($text-secondary, 0.1);
+    color:          $text-primary;
+  }
+
+  &.checkboxActive {
+    color:          $accent;
+    background:     rgba($accent, 0.1);
+
+    svg {
+      fill:          currentColor;
+    }
+  }
+
+  &:active {
+    transform:      scale(0.95);
+  }
+
+  svg {
+    width:          20px;
+    height:         20px;
+    fill:           currentColor;
+    @extend %transition;
+  }
+}
+
+.sendButton {
+  background:      $accent;
+  border:          none;
+  color:           $white;
+  cursor:          pointer;
+  padding:         0;
+  width:           40px;
+  height:          40px;
+  border-radius:   8px;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  @extend %transition;
+
+  svg {
+    width:          20px;
+    height:         20px;
+    @extend %transition;
+
+    path {
+      fill:          currentColor;
+    }
+  }
+
+  &:hover {
+    background:     $accent-hover;
+    transform:      translateY(-2px);
+  }
+
+  &:active {
+    transform:      translateY(0) scale(0.95);
+  }
+}
